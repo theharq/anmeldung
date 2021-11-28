@@ -1,17 +1,16 @@
 ## Anmeldung
 
-This is a simple script for those times we don't get an appointment in the Burgeramt and the deadline of the 14 days is past.
+This is a simple script for those times we don't get an appointment in the Burgeramt and the 14 days deadline has already passed.
 
 ## How it works
 
-It is a simple ruby script that is executed by a task scheduler every 10 minutes and when there is a date available it will send an email, as sms and will call you to alert you. It is not intended to make the appointment for you. Once the alert is received you can go to the page and do it yourself.
-
+The Heroku Scheduler calls a rake task and when an available date is found it will send an email, an SMS, and will call to notify you. It is not intended to make the appointment for you. Once the alert is received you may continue with the booking of the appointment.
 
 ### Configuring the script
 
-The first step would be to create a heroku app and add the [google chrome buildpack](https://github.com/heroku/heroku-buildpack-google-chrome).
+The first step would be to create a Heroku app and add the [google chrome buildpack](https://github.com/heroku/heroku-buildpack-google-chrome).
 
-Setup a twilio account and add the mailgun addon to the project, then make sure to have the following environment variables set with your configuration:
+Set up a Twilio account, and add the Mailgun addon to the project, then make sure to have the following environment variables set with your configuration:
 
 ```
 TWILIO_ACCOUNT_SID
@@ -26,7 +25,7 @@ MY_PHONE
 
 After deploying the script go to the scheduler addon you decided to use and configure it to run this rake task: `rake check_anmeldung`
 
-After getting your appointment please disable the script.
+After getting your appointment please disable this script.
 
 
 ## Relevant links
