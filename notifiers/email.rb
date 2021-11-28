@@ -14,7 +14,7 @@ class Email
         enable_starttls_auto: true,
         user_name: ENV.fetch("MAILGUN_SMTP_LOGIN"),
         password: ENV.fetch("MAILGUN_SMTP_PASSWORD"),
-        authentication: :plain
+        authentication: :plain,
         domain: "heroku.com"
       }
     })
