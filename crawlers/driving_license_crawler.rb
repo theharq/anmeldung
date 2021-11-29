@@ -11,9 +11,10 @@ class DrivingLicenseCrawler
 
   # To get these ids go to https://service.berlin.de/dienstleistung/327537/ and pick your district
   BURGERAMT_IDS = ENV.fetch("BURGERAMT_IDS")
+  URL = "https://service.berlin.de/terminvereinbarung/termin/tag.php?termin=1&anliegen[]=327537&dienstleisterlist=#{BURGERAMT_IDS}"
 
   def initialize
-    visit("https://service.berlin.de/terminvereinbarung/termin/tag.php?termin=1&anliegen[]=327537&dienstleisterlist=#{BURGERAMT_IDS}")
+    visit(URL)
   end
 
   def available_dates
